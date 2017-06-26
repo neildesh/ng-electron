@@ -8,7 +8,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "electron": "rm -rf electron/dist; mkdir electron/dist; cp -R node_modules/electron/dist/Electron.app/* electron/dist/; mkdir electron/dist/Contents/Resources/app; cp electron/src/* electron/dist/Contents/Resources/app/; ng build --prod -aot --base-href ./; cp dist/* electron/dist/Contents/Resources/app/; electron/dist/Contents/MacOS/Electron"
   },
   "private": true,
   "dependencies": {
@@ -32,6 +33,8 @@
     "@types/jasmine": "2.5.45",
     "@types/node": "~6.0.60",
     "codelyzer": "~3.0.1",
+    "electron": "^1.6.11",
+    "electron-reload": "^1.2.1",
     "jasmine-core": "~2.6.2",
     "jasmine-spec-reporter": "~4.1.0",
     "karma": "~1.7.0",
