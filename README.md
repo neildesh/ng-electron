@@ -2,27 +2,26 @@
 
 An Electron + Angular 4 starter project. This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.3.
 
-## Development server
+## Development
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+First download and extract the package. At the root folder do the following:
+```sh
+$ npm install
+```
+Develop as you normally would with [Angular CLI](https://cli.angular.io).
 
-## Code scaffolding
+## Production Build (Mac distribution)
+An electron distribution package can be created once development is complete.
+```sh
+$ npm run electron
+```
+- It will start the electron application.
+- This will also create the bzip2 archive of the entire app including electron and store it in `electron/build/app-mac.tar.bzip2`. The bzip2 file is all that is needed to distribute.
+- Electron can be configured by modifying the files in `electron/src/`. See [Electron](https://electron.atom.io) for more details.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Production Execution (Mac)
+```sh
+$ tar -xf app-mac.tar.bz2
+$ cd app
+$ ./app
+```
