@@ -9,8 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "electron": "rm -rf electron/dist; mkdir electron/dist; cp -R node_modules/electron/dist/Electron.app/* electron/dist/; mkdir electron/dist/Contents/Resources/app; cp electron/src/* electron/dist/Contents/Resources/app/; ng build --prod -aot --base-href ./; cp dist/* electron/dist/Contents/Resources/app/; electron/dist/Contents/MacOS/Electron"
-  },
+    "electron": "rm -rf electron/dist; rm -rf electron/build; mkdir electron/dist; mkdir electron/build; cp -R node_modules/electron/dist/Electron.app/* electron/dist/; cp electron/src/package.json electron/build/; node_modules/typescript/bin/tsc --outFile electron/build/index.js electron/src/index.ts; node_modules/uglify-js/bin/uglifyjs electron/build/index.js -c -m -o electron/build/index.js; ng build --prod -aot --base-href ./; cp dist/* electron/build; node_modules/asar/bin/asar.js p electron/build/ electron/dist/Contents/Resources/app.asar; electron/dist/Contents/MacOS/Electron"
+   },
   "private": true,
   "dependencies": {
     "@angular/animations": "^4.0.0",
@@ -32,6 +32,7 @@
     "@angular/language-service": "^4.0.0",
     "@types/jasmine": "2.5.45",
     "@types/node": "~6.0.60",
+    "asar": "^0.13.0",
     "codelyzer": "~3.0.1",
     "electron": "^1.6.11",
     "electron-reload": "^1.2.1",
@@ -46,6 +47,7 @@
     "protractor": "~5.1.2",
     "ts-node": "~3.0.4",
     "tslint": "~5.3.2",
-    "typescript": "~2.3.3"
+    "typescript": "^2.3.4",
+    "uglify-js": "^3.0.20"
   }
 }
