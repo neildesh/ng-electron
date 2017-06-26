@@ -1,6 +1,6 @@
 # NgElectron
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.3.
+An Electron + Angular 4 starter project. This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.3.
 
 ## Development server
 
