@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "electron": "rm -rf electron/dist; rm -rf electron/build; mkdir electron/dist; mkdir electron/build; cp -R node_modules/electron/dist/Electron.app/* electron/dist/; cp electron/src/package.json electron/build/; node_modules/typescript/bin/tsc --outFile electron/build/index.js electron/src/index.ts; node_modules/uglify-js/bin/uglifyjs electron/build/index.js -c -m -o electron/build/index.js; ng build --prod -aot --base-href ./; cp dist/* electron/build; node_modules/asar/bin/asar.js p electron/build/ electron/dist/Contents/Resources/app.asar; electron/dist/Contents/MacOS/Electron"
+    "electron": "rm -rf electron/app; rm -rf electron/build; mkdir electron/app; mkdir electron/build; cp -R node_modules/electron/dist/Electron.app/* electron/app/; cp electron/src/package.json electron/build/; cp electron/src/app electron/build/; node_modules/typescript/bin/tsc --outFile electron/build/index.js electron/src/index.ts; node_modules/uglify-js/bin/uglifyjs electron/build/index.js -c -m -o electron/build/index.js; ng build --prod -aot --base-href ./; cp dist/* electron/build; node_modules/asar/bin/asar.js p electron/build/ electron/app/Contents/Resources/app.asar; pushd electron; tar -cjf build/app-mac.tar.bz2 app; popd; electron/app/Contents/MacOS/Electron"
    },
   "private": true,
   "dependencies": {
